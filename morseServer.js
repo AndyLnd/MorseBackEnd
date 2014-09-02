@@ -2,8 +2,8 @@ var http = require('http'),
     clients = [],
 
     app = http.createServer(function (req, res) {
-        res.writeHead(200);
-        res.end();
+        res.writeHead(200, {'Content-Type': 'text/plain'});
+        res.end('Hello World\n');
     });
 
 var io = require('socket.io').listen(app);
