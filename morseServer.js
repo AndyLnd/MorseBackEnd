@@ -14,17 +14,17 @@ io.on('connection', function (socket) {
         socket.join(data);
         console.log('connect to: ' + data);
     });
-    socket.on('messageS', function (data) {
+    socket.on('message', function (data) {
         console.log('message received: ' + data);
         console.log(socket.rooms);
         for (var i = 0; i < socket.rooms.length; i++) {
             if (socket.rooms[i] !== socket.id)
-                io.in(socket.rooms[i]).emit('messageC', data)
+                io.in(socket.rooms[i]).emit('message', data)
         }
     });
     console.log('client connected');
 
 });
 
-app.listen(62178);
+app.listen(64021);
 console.log('server started ...');
