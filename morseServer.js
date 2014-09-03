@@ -16,7 +16,6 @@ io.on('connection', function (socket) {
     });
     socket.on('message', function (data) {
         console.log('message received: ' + data);
-        console.log(socket.rooms);
         for (var i = 0; i < socket.rooms.length; i++) {
             if (socket.rooms[i] !== socket.id)
                 io.in(socket.rooms[i]).emit('message', data)
